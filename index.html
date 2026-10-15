@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYGAME</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
+      #app canvas { display: block; }
+      .hidden { display: none !important; }
+      .chip {
+        background: rgba(20, 24, 32, 0.55); color: #fff; border: 2px solid rgba(255, 255, 255, 0.85);
+        border-radius: 12px; padding: 6px 12px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); user-select: none;
+      }
+      #clock { position: fixed; top: 16px; right: 16px; display: flex; gap: 10px; align-items: center; font-size: 20px; font-weight: 700; }
+      #clock-day { font-size: 14px; opacity: 0.85; }
+      #fast { position: fixed; top: 64px; right: 16px; font-size: 13px; }
+      #state { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: 700; }
+      #help { position: fixed; bottom: 16px; left: 16px; font-size: 13px; line-height: 1.7; }
+      #help b { display: inline-block; min-width: 76px; }
+      #overlay {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        background: rgba(10, 14, 24, 0.45); cursor: pointer;
+      }
+      #overlay .panel { text-align: center; color: #fff; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); }
+      #overlay h1 { font-size: 56px; margin: 0 0 8px; letter-spacing: 4px; }
+      #overlay p { font-size: 20px; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="clock" class="chip"><span id="clock-icon">☀️</span><span id="clock-time">08:00</span><span id="clock-day">1일차</span></div>
+    <div id="fast" class="chip hidden">⏩ 시간 빨리감기 x60</div>
+    <div id="state" class="chip">대기</div>
+    <div id="help" class="chip">
+      <div><b>W A S D</b>걷기</div>
+      <div><b>Shift</b>달리기</div>
+      <div><b>Space</b>점프</div>
+      <div><b>Q</b>구르기</div>
+      <div><b>C</b>앉기</div>
+      <div><b>Z</b>기어가기</div>
+      <div><b>마우스</b>카메라 회전</div>
+      <div><b>휠</b>카메라 거리</div>
+      <div><b>T (누름)</b>시간 빨리감기</div>
+      <div><b>H</b>도움말 숨기기</div>
+      <div><b>Esc</b>마우스 해제</div>
+    </div>
+    <div id="overlay">
+      <div class="panel">
+        <h1>MYGAME</h1>
+        <p>클릭해서 시작</p>
+      </div>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "mygame",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Toon-style open world action adventure RPG (web / Windows)",
+  "author": "kds020902",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "dist:win": "vite build && electron-builder --win portable --x64 --publish never"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^26.0.0",
+    "vite": "^5.4.21"
+  },
+  "build": {
+    "appId": "com.kds020902.mygame",
+    "productName": "MYGAME",
+    "directories": { "output": "release" },
+    "files": ["dist/**/*", "electron/**/*"],
+    "win": { "target": "portable" }
+  }
+}
